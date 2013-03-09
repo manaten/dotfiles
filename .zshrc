@@ -5,14 +5,18 @@ fpath=(~/.zsh/functions/Completion ${fpath})
 autoload -U compinit
 compinit
 
+# ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
+local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
 case ${UID} in
 0)
-	PROMPT="%{[31m%}[%n@%m]%{[m%} "
+	# rootの場合は赤くする
+	PROMPT="%{[31m%}[%n@$HOSTCOLOR%m%{[31m%}]%{[m%} "
 	;;
 *)
+	#screenを自動で起動したい場合は、↓のコメントを外す
 	#if [[ $STY = '' ]] then screen -xR; fi
-	#PROMPT="# "
-	PROMPT="%{[32m%}[%n@%m]%{[m%} "
+	# root以外の場合は緑
+	PROMPT="%{[32m%}[%n@$HOSTCOLOR%m%{[32m%}]%{[m%} "
 	;;
 esac
 RPROMPT="%{[33m%}[%~]%{[m%}"
@@ -47,6 +51,8 @@ alias vi='vim'
 
 alias -s php='php'
 alias -s tar='tar xvf'
+alias -s tar.gz='tar xvf'
+alias -s tgz='tar xvf'
 alias -s zip='unzip'
 
 # ssh-agent
