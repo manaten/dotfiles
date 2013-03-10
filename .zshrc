@@ -26,7 +26,8 @@ export PATH=$PATH:/usr/local/play
 
 HISTFILE=~/.zsh_history
 HISTSIZE=999999
-SAVEHIST=999999
+SAVEHIST=999999x
+REPORTTIME=2
 
 setopt hist_ignore_all_dups
 setopt hist_ignore_dups     # ignore duplication command history list
@@ -50,9 +51,7 @@ alias less='less -CR'
 alias vi='vim'
 
 alias -s php='php'
-alias -s tar='tar xvf'
-alias -s tar.gz='tar xvf'
-alias -s tgz='tar xvf'
+alias -s {tar,tar.gz,tgz}='tar xvf'
 alias -s zip='unzip'
 
 # ssh-agent
