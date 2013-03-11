@@ -54,6 +54,10 @@ alias -s php='php'
 alias -s {tar,tar.gz,tgz}='tar xvf'
 alias -s zip='unzip'
 
+# for cygwin
+cs () { cygstart $1 }
+sublime () { cygstart `cygpath -ad /cygdrive/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe` $1 }
+
 # ssh-agent
 echo -n "ssh-agent: "
 source ~/.ssh-agent-info
