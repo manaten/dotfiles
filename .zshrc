@@ -26,7 +26,7 @@ export PATH=$PATH:/usr/local/play
 
 HISTFILE=~/.zsh_history
 HISTSIZE=999999
-SAVEHIST=999999x
+SAVEHIST=999999
 REPORTTIME=2
 
 setopt hist_ignore_all_dups
