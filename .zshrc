@@ -5,28 +5,38 @@ fpath=(~/.zsh/functions/Completion ${fpath})
 autoload -U compinit
 compinit
 
+# http://mollifier.hatenablog.com/entry/20090814/p1
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:*' formats '%s:%b '
+precmd () {
+	psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+
 # ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
 local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
 case ${UID} in
 0)
 	# rootの場合は赤くする
-	PROMPT="%{[31m%}[%n@$HOSTCOLOR%m%{[31m%}]%{[m%} "
+	PROMPT="%F{red}[%n@$HOSTCOLOR%m%F{red}]%f "
 	;;
 *)
 	#screenを自動で起動したい場合は、↓のコメントを外す
 	#if [[ $STY = '' ]] then screen -xR; fi
 	# root以外の場合は緑
-	PROMPT="%{[32m%}[%n@$HOSTCOLOR%m%{[32m%}]%{[m%} "
+	PROMPT="%F{green}[%n@$HOSTCOLOR%m%F{green}]%f "
 	;;
 esac
-RPROMPT="%{[33m%}[%~]%{[m%}"
+RPROMPT="%F{yellow}[%1(v|%F{green}%1v%F{yellow}|)%~]%f"
 
 export EDITOR='/usr/bin/vim'
 export PATH=$PATH:/usr/local/play
 
 HISTFILE=~/.zsh_history
 HISTSIZE=999999
-SAVEHIST=999999x
+SAVEHIST=999999
 REPORTTIME=2
 
 setopt hist_ignore_all_dups
