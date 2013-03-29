@@ -60,6 +60,9 @@ alias tail='tail -n 100'
 alias less='less -CR'
 alias vi='vim'
 
+alias gitco='git checkout'
+alias gitci='git commit'
+
 alias -s php='php'
 alias -s {tar,tar.gz,tgz}='tar xvf'
 alias -s zip='unzip'
