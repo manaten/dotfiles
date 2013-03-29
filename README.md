@@ -1,4 +1,4 @@
-#Quick start
+#コピペ用
 
 ```
 curl https://raw.github.com/manaten/dotfiles/master/.zshrc > ~/.zshrc
