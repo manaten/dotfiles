@@ -1,3 +1,8 @@
 [user]
     mail = manaten@manaten.net
     name = manaten
+
+[alias]
+        co = checkout
+        st = status
+        ci = commit -a
