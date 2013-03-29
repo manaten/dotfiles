@@ -2,6 +2,13 @@
     mail = manaten@manaten.net
     name = manaten
 
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+
 [alias]
         co = checkout
         st = status
