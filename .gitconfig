@@ -2,6 +2,9 @@
     email = manaten@manaten.net
     name = manaten
 
+[core]
+    editor = vim
+
 [color]
     status = auto
     diff = auto
