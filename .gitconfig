@@ -16,6 +16,7 @@
     default = tracking
 
 [alias]
+    br = branch
     co = checkout
     st = status -s
     ci = commit -a
