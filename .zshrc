@@ -1,7 +1,7 @@
 export LANG=ja_JP.UTF-8
 export OUTPUT_CHARSET=utf8
 
-fpath=(~/.zsh/functions/Completion ${fpath})
+fpath=(~/.zsh-completions/src ${fpath})
 autoload -U compinit
 compinit
 
