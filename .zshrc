@@ -6,6 +6,8 @@ autoload -U compinit
 compinit
 
 # http://mollifier.hatenablog.com/entry/20090814/p1
+
+autoload -U colors; colors
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' formats '%s:%b '
@@ -20,16 +22,16 @@ local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%
 case ${UID} in
 0)
 	# rootの場合は赤くする
-	PROMPT="%F{red}[%n@$HOSTCOLOR%m%F{red}]%f "
+	PROMPT="%{${fg[red]}%}[%n@%f$HOSTCOLOR%m%{${fg[red]}%}]%{${reset_color}%} "
 	;;
 *)
 	#screenを自動で起動したい場合は、↓のコメントを外す
 	#if [[ $STY = '' ]] then screen -xR; fi
 	# root以外の場合は緑
-	PROMPT="%F{green}[%n@$HOSTCOLOR%m%F{green}]%f "
+	PROMPT="%{${fg[green]}%}[%n@%f$HOSTCOLOR%m%{${fg[green]}%}]%{${reset_color}%} "
 	;;
 esac
-RPROMPT="%F{yellow}[%1(v|%F{green}%1v%F{yellow}|)%~]%f"
+RPROMPT="%{${fg[yellow]}%}[%f%1(v|%1v|)%~]%{${reset_color}%}"
 
 export EDITOR='/usr/bin/vim'
 export PATH=$PATH:/usr/local/play
