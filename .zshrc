@@ -17,21 +17,22 @@ precmd () {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
+PROMPT="%F{yellow}[%1(v|%F{green}%1v%F{yellow}|)%~]%f
+"
 # ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
-local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
+local HOSTCOLOR=$'%{^[[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
 case ${UID} in
 0)
-	# rootの場合は赤くする
-	PROMPT="%{${fg[red]}%}[%n@%f$HOSTCOLOR%m%{${fg[red]}%}]%{${reset_color}%} "
-	;;
+        # rootの場合は赤くする
+        PROMPT=$PROMPT"%F{red}[%n@$HOSTCOLOR%m%F{red}]%f "
+        ;;
 *)
-	#screenを自動で起動したい場合は、↓のコメントを外す
-	#if [[ $STY = '' ]] then screen -xR; fi
-	# root以外の場合は緑
-	PROMPT="%{${fg[green]}%}[%n@%f$HOSTCOLOR%m%{${fg[green]}%}]%{${reset_color}%} "
-	;;
+        #screenを自動で起動したい場合は、↓のコメントを外す
+        if [[ $STY = '' ]] then screen -xR; fi
+        # root以外の場合は緑
+        PROMPT=$PROMPT"%F{green}[%n@$HOSTCOLOR%m%F{green}]%f "
+        ;;
 esac
-RPROMPT="%{${fg[yellow]}%}[%f%1(v|%1v|)%~]%{${reset_color}%}"
 
 export EDITOR='/usr/bin/vim'
 export PATH=$PATH:/usr/local/play
