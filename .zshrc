@@ -17,7 +17,7 @@ precmd () {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
-PROMPT="%{${fg[yellow]}%}[%f%1(v|%1v|)%~]%{${reset_color}%}
+PROMPT="%{${fg[yellow]}%}[%1(v|%{${fg[green]}%}%1v%{${fg[yellow]}%}|)%~]%{${reset_color}%}
 "
 # ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
 local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
