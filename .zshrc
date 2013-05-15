@@ -20,7 +20,7 @@ precmd () {
 PROMPT="%{${fg[yellow]}%}[%f%1(v|%1v|)%~]%{${reset_color}%}
 "
 # ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
-local HOSTCOLOR=$'%{rintf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
+local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
 case ${UID} in
 0)
         # rootの場合は赤くする
