@@ -28,7 +28,7 @@ case ${UID} in
         ;;
 *)
         #screenを自動で起動したい場合は、↓のコメントを外す
-        if [[ $STY = '' ]] then screen -xR; fi
+        # if [[ $STY = '' ]] then screen -xR; fi
         # root以外の場合は緑
         PROMPT=$PROMPT"%{${fg[green]}%}[%n@%f$HOSTCOLOR%m%{${fg[green]}%}]%{${reset_color}%} "
         ;;
