@@ -37,7 +37,7 @@ case ${UID} in
   ;;
 esac
 df=`df -h ~/|tail -n 1`
-df=`echo "a$df"|awk '{printf"disk use:%s/%s", $3, $2}'`
+df=`echo "a$df"|awk '{printf"disk use: %s / %s", $3, $2}'`
 RPROMPT='%{[1;31m%}$df%{[0;37m%}'
 
 export EDITOR='/usr/bin/vim'
