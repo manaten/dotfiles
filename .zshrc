@@ -1,6 +1,9 @@
 export LANG=ja_JP.UTF-8
 export OUTPUT_CHARSET=utf8
 
+#screenを自動で起動したい場合は、↓のコメントを外す
+# if [[ $STY = '' ]] then screen -xR; fi
+
 fpath=(~/.zsh-completions/src ${fpath})
 autoload -U compinit && compinit
 zstyle ':completion:*' list-colors ''
@@ -20,7 +23,7 @@ precmd () {
 # ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
 local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
 
-PROMPT="%{${fg[white]}%}>%{[1;32m%}>%{[0;32m%}> %1(v|%{${fg[green]}%}%1v|)%{${fg[yellow]}%}%~%{${reset_color}%}
+PROMPT="%{${fg[white]}%}>%{[1;36m%}>%{[0;36m%}> %1(v|%{${fg[green]}%}%1v|)%{${fg[yellow]}%}%d%{${reset_color}%}
 "
 case ${UID} in
 0)
@@ -28,8 +31,6 @@ case ${UID} in
         PROMPT=$PROMPT"%{${fg[red]}%}[%n@%f$HOSTCOLOR%m%{${fg[red]}%}]%{${reset_color}%} "
         ;;
 *)
-        #screenを自動で起動したい場合は、↓のコメントを外す
-        # if [[ $STY = '' ]] then screen -xR; fi
         # root以外の場合は緑
         PROMPT=$PROMPT"%{${fg[green]}%}[%n@%f$HOSTCOLOR%m%{${fg[green]}%}]%{${reset_color}%} "
         ;;
