@@ -2,12 +2,12 @@ export LANG=ja_JP.UTF-8
 export OUTPUT_CHARSET=utf8
 
 fpath=(~/.zsh-completions/src ${fpath})
-autoload -U compinit
-compinit
+autoload -U compinit && compinit
+zstyle ':completion:*' list-colors ''
+
+autoload -U colors && colors
 
 # http://mollifier.hatenablog.com/entry/20090814/p1
-
-autoload -U colors; colors
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' formats '%s:%b '
@@ -17,10 +17,11 @@ precmd () {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
-PROMPT="%{${fg[yellow]}%}[%1(v|%{${fg[green]}%}%1v%{${fg[yellow]}%}|)%~]%{${reset_color}%}
-"
 # ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
 local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
+
+PROMPT="%{${fg[white]}%}>%{[1;32m%}>%{[0;32m%}> %1(v|%{${fg[green]}%}%1v|)%{${fg[yellow]}%}%~%{${reset_color}%}
+"
 case ${UID} in
 0)
         # rootの場合は赤くする
@@ -33,6 +34,7 @@ case ${UID} in
         PROMPT=$PROMPT"%{${fg[green]}%}[%n@%f$HOSTCOLOR%m%{${fg[green]}%}]%{${reset_color}%} "
         ;;
 esac
+RPROMPT='%{[1;31m%}%*%{[0;37m%}'
 
 export EDITOR='/usr/bin/vim'
 export PATH=$PATH:/usr/local/play
@@ -53,6 +55,7 @@ setopt correct
 setopt list_packed
 setopt complete_aliases
 setopt extended_glob
+setopt transient_rprompt
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:default' menu select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
