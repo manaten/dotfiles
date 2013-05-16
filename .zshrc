@@ -22,6 +22,7 @@ precmd () {
 
 # ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
 local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
+local USERCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(echo $USERNAME|md5sum|cut -c1-2))"'m%}'
 
 PROMPT="%{${fg[white]}%}>%{[1;36m%}>%{[0;36m%}> %1(v|%{${fg[green]}%}%1v|)%{${fg[yellow]}%}%d%{${reset_color}%}
 "
@@ -32,7 +33,7 @@ case ${UID} in
         ;;
 *)
         # root以外の場合は緑
-        PROMPT=$PROMPT"%{${fg[green]}%}[%n@%f$HOSTCOLOR%m%{${fg[green]}%}]%{${reset_color}%} "
+        PROMPT=$PROMPT"%{${fg[green]}%}[$USERCOLOR%n%{${fg[green]}%}@%f$HOSTCOLOR%m%{${fg[green]}%}]%{${reset_color}%} "
         ;;
 esac
 RPROMPT='%{[1;31m%}%*%{[0;37m%}'
