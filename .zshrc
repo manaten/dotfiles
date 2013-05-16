@@ -15,9 +15,9 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' formats '%s:%b '
 precmd () {
-	psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
 # ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
@@ -28,15 +28,16 @@ PROMPT="%{${fg[white]}%}>%{[1;36m%}>%{[0;36m%}> %1(v|%{${fg[green]}%}%1v|)%{${
 "
 case ${UID} in
 0)
-        # rootの場合は赤くする
-        PROMPT=$PROMPT"%{${fg[red]}%}[%n@%f$HOSTCOLOR%m%{${fg[red]}%}]%{${reset_color}%} "
-        ;;
+  # rootの場合は赤くする
+  PROMPT=$PROMPT"%{${fg[red]}%}[%n@%f$HOSTCOLOR%m%{${fg[red]}%}]%{${reset_color}%} "
+  ;;
 *)
-        # root以外の場合は緑
-        PROMPT=$PROMPT"%{${fg[green]}%}[$USERCOLOR%n%{${fg[green]}%}@%f$HOSTCOLOR%m%{${fg[green]}%}]%{${reset_color}%} "
-        ;;
+  # root以外の場合は緑
+  PROMPT=$PROMPT"%{${fg[green]}%}[$USERCOLOR%n%{${fg[green]}%}@%f$HOSTCOLOR%m%{${fg[green]}%}]%{${reset_color}%} "
+  ;;
 esac
-RPROMPT='%{[1;31m%}%*%{[0;37m%}'
+df=`df -h ~/|tail -n 1|awk '{printf"use:%s/%s", $3, $2}'`
+RPROMPT='%{[1;31m%}$df%{[0;37m%}'
 
 export EDITOR='/usr/bin/vim'
 export PATH=$PATH:/usr/local/play
@@ -58,6 +59,7 @@ setopt list_packed
 setopt complete_aliases
 setopt extended_glob
 setopt transient_rprompt
+setopt prompt_subst
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:default' menu select
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
