@@ -18,6 +18,8 @@ precmd () {
   psvar=()
   LANG=en_US.UTF-8 vcs_info
   [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+  df=`df -h ~/|tail -n 1`
+  df=`echo "a$df"|awk '{printf"disk use: %s / %s", $3, $2}'`
 }
 
 # ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
@@ -36,8 +38,7 @@ case ${UID} in
   PROMPT=$PROMPT"%{${fg[green]}%}[$USERCOLOR%n%{${fg[green]}%}@%f$HOSTCOLOR%m%{${fg[green]}%}]%{${reset_color}%} "
   ;;
 esac
-df=`df -h ~/|tail -n 1`
-df=`echo "a$df"|awk '{printf"disk use: %s / %s", $3, $2}'`
+
 RPROMPT='%{[1;31m%}$df%{[0;37m%}'
 
 export EDITOR='/usr/bin/vim'
