@@ -5,6 +5,7 @@
 [core]
     editor = vim
     sparsecheckout = true
+    excludesfile = ~/.gitignore
 
 [color]
     status = auto
