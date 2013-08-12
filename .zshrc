@@ -94,8 +94,8 @@ function do_enter() {
         echo
         echo -e "\e[0;33m--- git status ---\e[0m"
         git status -sb
-        echo
     fi
+    echo
     zle reset-prompt
     return 0
 }
