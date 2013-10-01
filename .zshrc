@@ -1,8 +1,10 @@
 export LANG=ja_JP.UTF-8
 export OUTPUT_CHARSET=utf8
 
-#screenを自動で起動したい場合は、↓のコメントを外す
+# screenを自動で起動したい場合は、↓のコメントを外す
 # if [[ $STY = '' ]] then screen -xR; fi
+# tmuxを自動で起動したい場合は、↓のコメントを外す
+# if [[ $STY = '' ]] then tmux a; fi
 
 fpath=(~/.zsh-completions/src ${fpath})
 autoload -U compinit && compinit
