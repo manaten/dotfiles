@@ -1,4 +1,4 @@
-shell "/usr/bin/zsh"
+# shell "/usr/bin/zsh"
 vbell off
 autodetach on
 startup_message off
