@@ -4,7 +4,7 @@ export OUTPUT_CHARSET=utf8
 # screenを自動で起動したい場合は、↓のコメントを外す
 # if [[ $STY = '' ]] then screen -xR; fi
 # tmuxを自動で起動したい場合は、↓のコメントを外す
-# if [[ $STY = '' ]] then tmux a; fi
+# if [[ $TMUX = '' ]] then tmux a || tmux; fi
 
 fpath=(~/.zsh-completions/src ${fpath})
 autoload -U compinit && compinit
@@ -95,7 +95,7 @@ function do_enter() {
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
         echo
         echo -e "\e[0;33m--- git status ---\e[0m"
-        git status -sb
+        git status -s
     fi
     echo
     zle reset-prompt
