@@ -118,3 +118,8 @@ if ssh-add -l >&/dev/null ; then
 else
   ssh-add
 fi
+
+# ローカル用の設定を読む
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local;
+fi
