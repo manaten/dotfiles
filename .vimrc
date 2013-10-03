@@ -7,7 +7,7 @@ set encoding=utf-8
  " syntax highlighting
  syntax on
  colorscheme ron
- highlight LineNr ctermfg=darkgrey
+ highlight LineNr ctermfg=blue
  
  set whichwrap=b,s,h,l,<,>,[,] 
 
