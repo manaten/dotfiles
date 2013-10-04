@@ -43,8 +43,10 @@ esac
 
 RPROMPT='%{[1;31m%}$df%{[0;37m%}'
 
-export EDITOR='/usr/bin/vim'
 export PATH=$PATH:/usr/local/play
+
+export EDITOR=vim
+bindkey -e
 
 HISTFILE=~/.zsh_history
 HISTSIZE=999999
