@@ -17,6 +17,9 @@
 [push]
     default = tracking
 
+[commit]
+    template = ~/.gitmessage
+
 [alias]
     br = branch
     co = checkout
