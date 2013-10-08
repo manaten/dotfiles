@@ -21,12 +21,13 @@ zstyle ':vcs_info:*' formats '%s:%b ' '%r' '%R'
 precmd () {
   LANG=en_US.UTF-8 vcs_info
   psvar=()
-  if [[ -z ${vcs_info_msg_0_} ]]; then
+  [[ -n ${vcs_info_msg_0_} ]] && psvar[1]="$vcs_info_msg_0_"
+
+  if [[ -z ${vcs_info_msg_1_} ]] || [[ -z ${vcs_info_msg_2_} ]]; then
     psvar[2]=$PWD
   else
-    psvar[1]="$vcs_info_msg_0_"
     psvar[2]=`echo $vcs_info_msg_2_|sed -e "s#$vcs_info_msg_1_\\$##g"`
-    psvar[3]=$vcs_info_msg_1_
+    psvar[3]="$vcs_info_msg_1_"
     psvar[4]=`echo $PWD|sed -e "s#^$vcs_info_msg_2_##g"`
   fi
 
