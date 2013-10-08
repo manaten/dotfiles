@@ -12,23 +12,33 @@ zstyle ':completion:*' list-colors ''
 
 autoload -U colors && colors
 
-# http://mollifier.hatenablog.com/entry/20090814/p1
+# http://mollifier.hatenablog.com/entry/20090814/p1, http://shakenbu.org/yanagi/d/?date=20120306
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:*' formats '%s:%b '
+zstyle ':vcs_info:*' max-exports 3
+zstyle ':vcs_info:*' formats '%s:%b ' '%r' '%R'
+
 precmd () {
-  psvar=()
   LANG=en_US.UTF-8 vcs_info
-  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-  df=`df -h ~/|tail -n 1`
-  df=`echo "a$df"|awk '{printf"disk use: %s / %s", $3, $2}'`
+  psvar=()
+  if [[ -z ${vcs_info_msg_0_} ]]; then
+    psvar[2]=$PWD
+  else
+    psvar[1]="$vcs_info_msg_0_"
+    psvar[2]=`echo $vcs_info_msg_2_|sed -e "s#$vcs_info_msg_1_\\$##g"`
+    psvar[3]=$vcs_info_msg_1_
+    psvar[4]=`echo $PWD|sed -e "s#^$vcs_info_msg_2_##g"`
+  fi
+
+  psvar[5]=`df -h ~/|tail -n 1`
+  psvar[5]=`echo "a${psvar[5]}"|awk '{printf"disk use: %s / %s", $3, $2}'`
 }
 
 # ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
 local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
 local USERCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(echo $USERNAME|md5sum|cut -c1-2))"'m%}'
 
-PROMPT="%{${fg[white]}%}>%{[1;36m%}>%{[0;36m%}> %1(v|%{${fg[green]}%}%1v|)%{${fg[yellow]}%}%d%{${reset_color}%}
+PROMPT="%{${fg[white]}%}>%{[1;36m%}>%{[0;36m%}> %{${fg[green]}%}%1(v|%1v|)%{${fg[yellow]}%}%2v%U%3v%u%4v%{${reset_color}%}
 "
 case ${UID} in
 0)
@@ -41,7 +51,8 @@ case ${UID} in
   ;;
 esac
 
-RPROMPT='%{[1;31m%}$df%{[0;37m%}'
+RPROMPT='%{[1;31m%}%5v%{[0;37m%}'
+
 
 export PATH=$PATH:/usr/local/play
 
