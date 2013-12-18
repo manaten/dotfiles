@@ -15,7 +15,7 @@
     grep = auto
 
 [push]
-    default = current
+    default = upstream
 
 [commit]
     template = ~/.gitmessage
