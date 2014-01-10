@@ -29,6 +29,8 @@ precmd () {
     psvar[2]=`echo $vcs_info_msg_2_|sed -e "s#$vcs_info_msg_1_\\$##g"`
     psvar[3]="$vcs_info_msg_1_"
     psvar[4]=`echo $PWD|sed -e "s#^$vcs_info_msg_2_##g"`
+    
+    which tmux > /dev/null && tmux rename-window $vcs_info_msg_1_
   fi
 
   psvar[5]=`df -h ~/|tail -n 1`
