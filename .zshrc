@@ -30,7 +30,7 @@ precmd () {
     psvar[3]="$vcs_info_msg_1_"
     psvar[4]=`echo $PWD|sed -e "s#^$vcs_info_msg_2_##g"`
     
-    which tmux > /dev/null && tmux rename-window $vcs_info_msg_1_
+    tmux rename-window $vcs_info_msg_1_ > /dev/null 2>&1
   fi
 
   psvar[5]=`df -h ~/|tail -n 1`
