@@ -29,7 +29,7 @@ precmd () {
     psvar[2]=`echo $vcs_info_msg_2_|sed -e "s#$vcs_info_msg_1_\\$##g"`
     psvar[3]="$vcs_info_msg_1_"
     psvar[4]=`echo $PWD|sed -e "s#^$vcs_info_msg_2_##g"`
-    
+
     tmux rename-window $vcs_info_msg_1_ > /dev/null 2>&1
   fi
 
@@ -58,6 +58,7 @@ RPROMPT='%{[1;31m%}%5v%{[0;37m%}'
 
 
 export PATH=$PATH:/usr/local/play
+export PATH=$PATH:$HOME/.composer/vendor/bin
 
 export EDITOR=vim
 bindkey -e
