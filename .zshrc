@@ -58,7 +58,7 @@ RPROMPT='%{[1;31m%}%5v%{[0;37m%}'
 
 
 export PATH=$PATH:/usr/local/play
-export PATH=$PATH:$HOME/.composer/vendor/bin
+export PATH=$HOME/.composer/vendor/bin:$PATH
 
 export EDITOR=vim
 bindkey -e
