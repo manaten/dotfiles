@@ -1,11 +1,8 @@
 Locale=ja_JP
 Charset=UTF-8
-
-BoldAsFont=no
+BoldAsFont=yes
 Font=Consolas
-FontHeight=11
-Locale=ja_JP
-Charset=UTF-8
+FontHeight=15
 CopyAsRTF=no
 CopyOnSelect=no
 Term=xterm-256color
@@ -16,10 +13,6 @@ CursorType=block
 Scrollbar=none
 BellFlash=no
 AllowBlinking=yes
-
-# https://github.com/karlin/mintty-colors-solarized/blob/master/.minttyrc--solarized-dark
-BoldAsFont=yes
-Term=xterm-256color
 BoldAsColour=yes
 Black=7,54,66
 Red=220,50,47
@@ -29,7 +22,7 @@ Blue=38,139,210
 Magenta=211,54,130
 Cyan=42,161,152
 White=238,232,213
-BoldBlack=0,43,54
+BoldBlack=30,83,104
 BoldRed=203,75,22
 BoldGreen=88,110,117
 BoldYellow=101,123,131
