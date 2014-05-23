@@ -88,7 +88,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 alias grep='grep --color=auto -n'
 alias ls='ls --color=auto -lhp'
 alias tail='tail -n 100'
-alias less='less -CR'
+alias less='less -CRN'
 alias vi='vim'
 
 alias -s php='php'
