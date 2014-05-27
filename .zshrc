@@ -96,7 +96,7 @@ alias -s {tar,tar.gz,tgz}='tar xvf'
 alias -s zip='unzip'
 
 # npm completion
-if [ -x `which npm` ]; then; . <(npm completion); fi
+if [ -x "`which npm`" ]; then; . <(npm completion); fi
 
 # for cygwin
 cs () { cygstart $1 }
