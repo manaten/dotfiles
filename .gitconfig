@@ -5,7 +5,8 @@
 [core]
     editor = vim
     sparsecheckout = true
-    excludesfile = ~/.globalignore
+	excludesfile = ~/.globalignore
+	filemode = false
 
 [color]
     status = auto
