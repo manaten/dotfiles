@@ -124,20 +124,22 @@ function do_enter() {
 zle -N do_enter
 bindkey '^m' do_enter
 
-# ssh-agent
-#echo -n "ssh-agent: "
-#source ~/.ssh-agent-info
-#ssh-add -l >&/dev/null
-#if [ $? = 2 ] ; then
-#  echo -n "ssh-agent: restart...."
-#  ssh-agent >~/.ssh-agent-info
-#  source ~/.ssh-agent-info
-#fi
-#if ssh-add -l >&/dev/null ; then
-#  # echo "ssh-agent: Identity is already stored."
-#else
-#  ssh-add
-#fi
+# ssh-agent の起動及び agent-forward対応
+AGENT_SOCK_FILE="/tmp/ssh-agent-$USER"
+SSH_AGENT_FILE="$HOME/.ssh-agent-info"
+if test $SSH_AUTH_SOCK ; then
+  if [ $SSH_AUTH_SOCK != $AGENT_SOCK_FILE ] ; then
+    ln -sf $SSH_AUTH_SOCK $AGENT_SOCK_FILE
+    export SSH_AUTH_SOCK=$AGENT_SOCK_FILE
+  fi
+else
+  test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
+  if ! ssh-add -l >& /dev/null ; then
+    ssh-agent > $SSH_AGENT_FILE
+    source $SSH_AGENT_FILE
+    ssh-add
+  fi
+fi
 
 # ローカル用の設定を読む
 if [ -f ~/.zshrc.local ]; then
