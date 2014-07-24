@@ -7,3 +7,5 @@
 .externalToolBuilders
 .idea
 *.iml
+
+fuel_completion.php

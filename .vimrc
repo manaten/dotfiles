@@ -6,7 +6,7 @@ set encoding=utf-8
  
  " syntax highlighting
  syntax on
- colorscheme ron
+ " colorscheme ron
  highlight LineNr ctermfg=blue
  
  set whichwrap=b,s,h,l,<,>,[,] 
@@ -103,7 +103,7 @@ set encoding=utf-8
  
  " Enable use of the mouse for all modes
  " 全モードでマウスを有効化
- set mouse=a
+ " set mouse=a
  
  " Set the command window height to 2 lines, to avoid many cases of having to
  " "press <Enter> to continue"
