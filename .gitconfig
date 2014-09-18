@@ -6,7 +6,7 @@
     editor = vim
     sparsecheckout = true
 	excludesfile = ~/.globalignore
-	filemode = false
+	fileMode = false
 
 [color]
     status = auto
@@ -28,7 +28,8 @@
     co = checkout
     st = status -s
     ci = commit -av
-	su = submodule update
+	su = submodule update --recursive --init
+
 
 # http://yuroyoro.hatenablog.com/entry/2012/10/22/153429
     ch = "!f() { git cherry -v "$@" | awk '{ if($1 == \"+\"){ color = \"green\" } if($1 == \"-\"){ color = \"red\" } cmd = \"git show --date=short --no-notes --pretty=format:\\047%C\" color $1 \" %h %Cgreen%cd %Cblue%cn%x09%Creset%s\\047 --summary \" $2; cmd | getline t; close(cmd); print t }' ;}; f"
