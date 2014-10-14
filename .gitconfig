@@ -5,8 +5,8 @@
 [core]
     editor = vim
     sparsecheckout = true
-	excludesfile = ~/.globalignore
-	fileMode = false
+    excludesfile = ~/.globalignore
+    fileMode = false
 
 [color]
     status = auto
@@ -17,18 +17,19 @@
 
 [push]
 #    default = upstream
-    default = tracking    
+    default = tracking
 
 [commit]
     template = ~/.gitmessage
 
 [alias]
-	fc = fetch --all
-    br = branch
+    fc = fetch --all
+    br = branch -v
     co = checkout
     st = status -s
     ci = commit -av
-	su = submodule update --recursive --init
+    su = submodule update --recursive --init
+    pr = "!f() { REMOTE1=`echo $1|sed 's#/.*$##'`; REMOTE2=`echo $2|sed 's#/.*$##'`; BRANCH1=`echo $1|sed 's#^.*/##'`; BRANCH2=`echo $2|sed 's#^.*/##'`; URL=`git remote show -n $REMOTE2|grep 'Fetch URL:'|sed -e 's#:#/#g' -e 's#^.*git@#http://#' -e 's#\\.git#/compare/#g'`; USER1=`git remote show -n $REMOTE1|grep 'Fetch URL:'|sed -e 's#^.*git@.*:##' -e 's#/.*$##'`; USER2=`git remote show -n $REMOTE2|grep 'Fetch URL:'|sed -e 's#^.*git@.*:##' -e 's#/.*$##'`; echo $URL$USER1:$BRANCH1...$USER2:$BRANCH2; }; f"
 
 
 # http://yuroyoro.hatenablog.com/entry/2012/10/22/153429
