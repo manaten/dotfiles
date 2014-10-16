@@ -24,7 +24,7 @@
 
 [alias]
     fc = fetch --all
-    br = branch -v
+    br = branch
     co = checkout
     st = status -s
     ci = commit -av

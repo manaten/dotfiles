@@ -8,7 +8,15 @@ export OUTPUT_CHARSET=utf8
 
 fpath=(~/.zsh-completions/src ${fpath})
 autoload -U compinit && compinit
-zstyle ':completion:*' list-colors ''
+autoload colors
+
+zstyle ':completion:*' use-cache true
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:default' menu select
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+
 
 autoload -U colors && colors
 
@@ -81,9 +89,6 @@ setopt complete_aliases
 setopt extended_glob
 setopt transient_rprompt
 setopt prompt_subst
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*:default' menu select
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 alias grep='grep --color=auto -n'
 alias ls='ls --color=auto -lhp'
