@@ -1,1 +1,29 @@
-†  †
+(): †  †
+
+
+
+
+#
+# Message example
+#
+# <type>(<scope>): † <subject> †
+# <BLANK LINE>
+# <body>
+# <BLANK LINE>
+# <footer>
+#
+# Allowed <type>
+# - feat (feature)
+# - fix (bug fix)
+# - docs (documentation)
+# - style (formatting, missing semi colons, …)
+# - refactor
+# - test (when adding missing tests)
+# - chore (maintain)
+# 
+# Message footer
+# - BREAKING CHANGE:
+# - Closes #xxx
+#
+# For more infomation, see https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/
+#
