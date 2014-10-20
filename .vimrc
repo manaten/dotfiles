@@ -26,8 +26,12 @@ set listchars=tab:\^\ ,trail:･,extends:>,precedes:<,nbsp:･,eol:↲
 highlight SpecialKey ctermfg=lightblue
 highlight NonText ctermfg=lightblue
 highlight LineNr ctermfg=blue
+
+highlight WhiteSpace cterm=underline ctermfg=darkgray
+call matchadd('WhiteSpace', ' ')
+
 highlight ZenkakuSpace ctermbg=darkmagenta
-match ZenkakuSpace /　/
+call matchadd('ZenkakuSpace', '　')
 
 
 "------------------------------------------------------------
