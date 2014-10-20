@@ -11,9 +11,21 @@ highlight LineNr ctermfg=blue
 
 set whichwrap=b,s,h,l,<,>,[,]
 
-" 空白文字
+" インデント関係
+set expandtab
+set tabstop=4
+set softtabstop=4
+set autoindent
+set smartindent
+
+" 空白文字などのハイライト設定
 set list
-set listchars=tab:\^\ ,trail:･,extends:>,precedes:<,nbsp:%,eol:¬
+set listchars=tab:\^.,trail:.,extends:>,precedes:<,nbsp:%,eol:¬
+highlight SpecialKey ctermfg=lightblue
+highlight NonText ctermfg=lightblue
+highlight ZenkakuSpace cterm=reverse ctermfg=darkmagenta
+match ZenkakuSpace /　/
+
 
 "------------------------------------------------------------
 " Must have options {{{1
