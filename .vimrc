@@ -6,8 +6,9 @@ filetype indent plugin on
 
 " syntax highlighting
 syntax on
-" colorscheme ron
-highlight LineNr ctermfg=blue
+
+set lazyredraw
+set ttyfast
 
 set whichwrap=b,s,h,l,<,>,[,]
 
@@ -20,9 +21,10 @@ set smartindent
 
 " 空白文字などのハイライト設定
 set list
-set listchars=tab:\^.,trail:.,extends:>,precedes:<,nbsp:%,eol:¬
+set listchars=tab:\^\ ,trail:.,extends:>,precedes:<,nbsp:%,eol:¬
 highlight SpecialKey ctermfg=lightblue
 highlight NonText ctermfg=lightblue
+highlight LineNr ctermfg=blue
 highlight ZenkakuSpace cterm=reverse ctermfg=darkmagenta
 match ZenkakuSpace /　/
 
@@ -139,27 +141,6 @@ set notimeout ttimeout ttimeoutlen=200
 " <F11>キーで'paste'と'nopaste'を切り替える
 set pastetoggle=<F11>
 
-"------------------------------------------------------------
-" Indentation options {{{1
-" インデント関連のオプション {{{1
-"
-" Indentation settings according to personal preference.
-
-" Indentation settings for using 2 spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
-" タブ文字の代わりにスペース2個を使う場合の設定。
-" この場合、'tabstop'はデフォルトの8から変えない。
-"set shiftwidth=2
-"set softtabstop=2
-"set expandtab
-
-" Indentation settings for using hard tabs for indent. Display tabs as
-" two characters wide.
-" インデントにハードタブを使う場合の設定。
-" タブ文字を2文字分の幅で表示する。
-set shiftwidth=4
-set tabstop=4
-
 
 "------------------------------------------------------------
 " Mappings {{{1
@@ -181,6 +162,7 @@ set showtabline=2
 
 "----------------------------------------------------------------
 
+" エンコード設定
 set encoding=utf-8
 if &encoding !=# 'utf-8'
   set encoding=japan
