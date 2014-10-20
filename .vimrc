@@ -2,7 +2,7 @@ set encoding=utf-8
 set nocompatible
 
 " file type
-filetype indent plugin on
+filetype on
 
 " syntax highlighting
 syntax on
