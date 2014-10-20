@@ -21,11 +21,12 @@ set smartindent
 
 " 空白文字などのハイライト設定
 set list
-set listchars=tab:\^\ ,trail:.,extends:>,precedes:<,nbsp:%,eol:¬
+set listchars=tab:\^\ ,trail:･,extends:>,precedes:<,nbsp:･,eol:↲
+
 highlight SpecialKey ctermfg=lightblue
 highlight NonText ctermfg=lightblue
 highlight LineNr ctermfg=blue
-highlight ZenkakuSpace cterm=reverse ctermfg=darkmagenta
+highlight ZenkakuSpace ctermbg=darkmagenta
 match ZenkakuSpace /　/
 
 
