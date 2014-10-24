@@ -19,6 +19,12 @@ set softtabstop=4
 set autoindent
 set smartindent
 
+" vimdiff 用ハイライト設定
+highlight DiffAdd    ctermfg=black ctermbg=2
+highlight DiffChange ctermfg=black ctermbg=3
+highlight DiffDelete ctermfg=black ctermbg=6
+highlight DiffText   ctermfg=black ctermbg=7
+
 " 空白文字などのハイライト設定
 set list
 set listchars=tab:\^\ ,trail:･,extends:>,precedes:<,nbsp:･,eol:↲
@@ -32,7 +38,6 @@ call matchadd('WhiteSpace', ' ')
 
 highlight ZenkakuSpace ctermbg=darkmagenta
 call matchadd('ZenkakuSpace', '　')
-
 
 "------------------------------------------------------------
 " Must have options {{{1
