@@ -1,4 +1,5 @@
-export LANG=ja_JP.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=$LANG
 export OUTPUT_CHARSET=utf8
 
 # screenを自動で起動したい場合は、↓のコメントを外す
@@ -101,7 +102,7 @@ alias -s {tar,tar.gz,tgz}='tar xvf'
 alias -s zip='unzip'
 
 # npm completion
-if [ -x "`which npm`" ]; then; . <(npm completion); fi
+#if [ -x "`which npm`" ]; then; . <(npm completion); fi
 
 # for cygwin
 cs () { cygstart $1 }
