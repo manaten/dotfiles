@@ -97,7 +97,13 @@ alias tail='tail -n 100'
 alias less='less -CR'
 alias vi='vim'
 
+alias -s zshrc='source'
 alias -s php='php'
+alias -s py='python'
+alias -s rb='ruby'
+alias -s jar='java -jar'
+alias -s js='node'
+alias -s coffee='coffee'
 alias -s {tar,tar.gz,tgz}='tar xvf'
 alias -s zip='unzip'
 
