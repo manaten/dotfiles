@@ -106,9 +106,10 @@ alias -s js='node'
 alias -s coffee='coffee'
 alias -s {tar,tar.gz,tgz}='tar xvf'
 alias -s zip='unzip'
+alias -s git='git clone'
 
 # npm completion
-#if [ -x "`which npm`" ]; then; . <(npm completion); fi
+if [ -x "`which npm`" ]; then; . <(npm completion); fi
 
 # for cygwin
 cs () { cygstart $1 }
