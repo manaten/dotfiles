@@ -94,7 +94,7 @@ setopt prompt_subst
 alias grep='grep --color=auto -n'
 alias ls='ls --color=auto -lhp'
 alias tail='tail -n 100'
-alias less='less -CR'
+alias less='less -CRSn'
 alias vi='vim'
 
 alias -s zshrc='source'
@@ -107,6 +107,7 @@ alias -s coffee='coffee'
 alias -s {tar,tar.gz,tgz}='tar xvf'
 alias -s zip='unzip'
 alias -s git='git clone'
+alias -s sh='/bin/bash'
 
 # npm completion
 if [ -x "`which npm`" ]; then; . <(npm completion); fi
