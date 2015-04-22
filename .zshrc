@@ -96,6 +96,7 @@ alias ls='ls --color=auto -lhp'
 alias tail='tail -n 100'
 alias less='less -CRSn'
 alias vi='vim'
+alias curl='curl -s'
 
 alias -s zshrc='source'
 alias -s php='php'
