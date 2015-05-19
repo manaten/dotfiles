@@ -2,6 +2,8 @@ export LANG=en_US.UTF-8
 export LC_ALL=$LANG
 export OUTPUT_CHARSET=utf8
 
+eval "$(direnv hook zsh)"
+
 # screenを自動で起動したい場合は、↓のコメントを外す
 # if [[ $STY = '' ]] then screen -xR; fi
 # tmuxを自動で起動したい場合は、↓のコメントを外す
