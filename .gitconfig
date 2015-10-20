@@ -41,3 +41,5 @@
 
 [difftool]
     prompt = false
+[rebase]
+	autosquash = true
