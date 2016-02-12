@@ -7,6 +7,7 @@
 
 .externalToolBuilders
 .idea
+.vscode
 *.iml
 
 fuel_completion.php
