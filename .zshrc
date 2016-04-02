@@ -94,8 +94,7 @@ setopt transient_rprompt
 setopt prompt_subst
 
 alias grep='grep --color=auto -n'
-alias ls='ls --color=auto -lhp'
-alias tail='tail -n 100'
+alias ls='ls -lhp'
 alias less='less -CRSn'
 alias vi='vim'
 alias curl='curl -s'
