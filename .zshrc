@@ -93,7 +93,7 @@ setopt extended_glob
 setopt transient_rprompt
 setopt prompt_subst
 
-alias grep='grep --color=auto -n'
+alias grep='grep --color=auto'
 alias ls='ls -lhp'
 alias less='less -CRSn'
 alias vi='vim'
