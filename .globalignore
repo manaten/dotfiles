@@ -13,3 +13,7 @@
 *.iml
 
 fuel_completion.php
+local.js
+
+# 開発時に自分の都合で勝手に置くことがあるため。
+.envrc
