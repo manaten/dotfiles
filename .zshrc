@@ -114,6 +114,13 @@ alias -s sh='/bin/bash'
 # npm completion
 if [ -x "`which npm`" ]; then; . <(npm completion); fi
 
+# useful functions
+function tmpdir() {
+  local tmpdirname="~/tmp_$(date +'%Y%m%d')"
+  mkdir -p $tmpdirname
+  cd $tmpdirname
+}
+
 # for cygwin
 cs () { cygstart $1 }
 sublime () { cygstart `cygpath -ad /cygdrive/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe` $1 }
