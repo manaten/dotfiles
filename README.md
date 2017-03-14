@@ -1,13 +1,14 @@
-#コピペ用
+dotfiles
+===
 
+# Install
+
+```sh
+./init.sh
 ```
-curl https://raw.github.com/manaten/dotfiles/master/.zshrc > ~/.zshrc
-curl https://raw.github.com/manaten/dotfiles/master/.zshrc > ~/.bashrc
-curl https://raw.github.com/manaten/dotfiles/master/.vimrc > ~/.vimrc
-curl https://raw.github.com/manaten/dotfiles/master/.tmux.conf > ~/.tmux.conf
-curl https://raw.github.com/manaten/dotfiles/master/.gitconfig > ~/.gitconfig
-curl https://raw.github.com/manaten/dotfiles/master/.gitmessage > ~/.gitmessage
-curl https://raw.github.com/manaten/dotfiles/master/.globalignore > ~/.globalignore
-curl https://raw.github.com/manaten/dotfiles/master/.screenrc > ~/.screenrc
-curl https://raw.github.com/manaten/dotfiles/master/.minttyrc > ~/.minttyrc
-```
+
+# Dependencies
+- [rupa/z](https://github.com/rupa/z)
+- [peco/peco](https://github.com/peco/peco)
+- [motemen/ghq](https://github.com/motemen/ghq)
+- [direnv/direnv](https://github.com/direnv/direnv)
