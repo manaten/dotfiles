@@ -180,20 +180,18 @@ function peco_select_history() {
     else
       tac="tail -r"
     fi
-    BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
+    BUFFER=$(fc -l -n 1 | eval $tac | peco --layout=bottom-up --query "$LBUFFER")
     CURSOR=$#BUFFER
-    zle clear-screen
 }
 zle -N peco_select_history
 bindkey '^r' peco_select_history
 
 function peco-src () {
-    local selected_dir=$GHQ_ROOT/$(ghq list | peco --query "$LBUFFER")
+    local selected_dir=$GHQ_ROOT/$(ghq list | peco --layout=bottom-up --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
     fi
-    zle clear-screen
 }
 zle -N peco-src
 bindkey '^]' peco-src
