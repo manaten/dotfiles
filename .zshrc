@@ -68,8 +68,10 @@ esac
 RPROMPT='%{[1;31m%}%5v%{[0;37m%}'
 
 
-export PATH=$PATH:/usr/local/play
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
 export PATH=$HOME/.composer/vendor/bin:$PATH
+export GHQ_ROOT=~/work
 
 export EDITOR=vim
 bindkey -e
@@ -98,6 +100,7 @@ alias ls='ls -lhp'
 alias less='less -CRSn'
 alias vi='vim'
 alias curl='curl -s'
+alias ghqls='cd $GHQ_ROOT/$(ghq list | peco)'
 
 alias -s zshrc='source'
 alias -s php='php'
@@ -185,7 +188,7 @@ zle -N peco_select_history
 bindkey '^r' peco_select_history
 
 function peco-src () {
-    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+    local selected_dir=$GHQ_ROOT/$(ghq list | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
