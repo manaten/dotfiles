@@ -53,3 +53,6 @@
     prune = true
 [remote "origin"]
     fetch = +refs/pull/*:refs/remotes/pr/*
+[ghq]
+    root = ~/work
+
