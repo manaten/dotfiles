@@ -168,3 +168,29 @@ fi
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local;
 fi
+
+# see http://qiita.com/ysk_1031/items/8cde9ce8b4d0870a129d
+function peco_select_history() {
+    local tac
+    if which tac > /dev/null; then
+         tac="tac"
+    else
+      tac="tail -r"
+    fi
+    BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco_select_history
+bindkey '^r' peco_select_history
+
+function peco-src () {
+    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
