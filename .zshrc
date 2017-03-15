@@ -167,11 +167,6 @@ else
   fi
 fi
 
-# ローカル用の設定を読む
-if [ -f ~/.zshrc.local ]; then
-  source ~/.zshrc.local;
-fi
-
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--height=40% --color=fg+:255,hl+:255'
@@ -184,6 +179,12 @@ function fzf-ghq () {
         zle accept-line
     fi
 }
-zle -N fzf-ghq
-bindkey '^|' fzf-ghq
-bindkey '^]' fzf-ghq
+if which ghq > /dev/null && which fzf > /dev/null; then
+    zle -N fzf-ghq
+    bindkey '^|' fzf-ghq
+    bindkey '^]' fzf-ghq
+fi
+
+# ローカル用の設定を読む
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
