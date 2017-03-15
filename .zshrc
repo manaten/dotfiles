@@ -185,4 +185,5 @@ function fzf-ghq () {
     fi
 }
 zle -N fzf-ghq
+bindkey '^|' fzf-ghq
 bindkey '^]' fzf-ghq
