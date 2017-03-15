@@ -172,26 +172,17 @@ if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local;
 fi
 
-# see http://qiita.com/ysk_1031/items/8cde9ce8b4d0870a129d
-function peco_select_history() {
-    local tac
-    if which tac > /dev/null; then
-         tac="tac"
-    else
-      tac="tail -r"
-    fi
-    BUFFER=$(fc -l -n 1 | eval $tac | peco --layout=bottom-up --query "$LBUFFER")
-    CURSOR=$#BUFFER
-}
-zle -N peco_select_history
-bindkey '^r' peco_select_history
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-function peco-src () {
-    local selected_dir=$(ghq list | peco --layout=bottom-up --query "$LBUFFER")
+
+# see http://qiita.com/ysk_1031/items/8cde9ce8b4d0870a129d
+function fzf-ghq () {
+    local selected_dir=$(ghq list | fzf --query="$LBUFFER" --height='40%')
     if [ -n "$selected_dir" ]; then
         BUFFER="cd $GHQ_ROOT/${selected_dir}"
         zle accept-line
     fi
 }
-zle -N peco-src
-bindkey '^]' peco-src
+zle -N fzf-ghq
+bindkey '^]' fzf-ghq
