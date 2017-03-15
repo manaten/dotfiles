@@ -174,7 +174,7 @@ fi
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS='--height=40% --color=fg+:255'
+export FZF_DEFAULT_OPTS='--height=40% --color=fg+:255,hl+:255'
 
 # see http://qiita.com/ysk_1031/items/8cde9ce8b4d0870a129d
 function fzf-ghq () {
