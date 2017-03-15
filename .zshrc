@@ -111,7 +111,7 @@ alias -s js='node'
 alias -s coffee='coffee'
 alias -s {tar,tar.gz,tgz}='tar xvf'
 alias -s zip='unzip'
-alias -s git='git clone'
+alias -s git='ghq get'
 alias -s sh='/bin/bash'
 
 # npm completion
