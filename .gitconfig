@@ -23,8 +23,9 @@
 
 [alias]
     fc = fetch --all
-    br = "!git checkout $(git branch -v | fzf | sed -E 's/^\\*? *([^ ]+).*$/\\1/')"
-    brs = branch -v
+    br = "!git checkout $(git branch -vvv | fzf | sed -E 's/^\\*? *([^ ]+).*$/\\1/')"
+    bra = "!git checkout $(git branch -avvv | fzf | sed -E 's/^\\*? *([^ ]+).*$/\\1/')"
+    brs = branch -vvv
     branchs = branch -v
     remotes = remote -v
     co = checkout
