@@ -119,9 +119,9 @@ if [ -x "`which npm`" ]; then; . <(npm completion); fi
 
 # useful functions
 function tmpdir() {
-  local tmpdirname="tmp_$(date +'%Y%m%d')"
-  mkdir -p ~/$tmpdirname
-  cd ~/$tmpdirname
+  local tmpdirname="$(date +'%Y%m%d')"
+  mkdir -p ~/tmp/$tmpdirname
+  cd ~/tmp/$tmpdirname
 }
 
 # for cygwin
