@@ -15,3 +15,4 @@ dotfiles
 - [ggreer/the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
 - [stedolan/jq](https://github.com/stedolan/jq)
 - [tmux/tmux](https://github.com/tmux/tmux)
+- [github/hub](https://github.com/github/hub)
