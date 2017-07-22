@@ -37,40 +37,39 @@ precmd () {
   if [[ -z ${vcs_info_msg_1_} ]] || [[ -z ${vcs_info_msg_2_} ]]; then
     psvar[2]=$PWD
   else
-    psvar[2]=`echo $vcs_info_msg_2_|sed -e "s#$vcs_info_msg_1_\\$##g"`
-    psvar[3]="$vcs_info_msg_1_"
-    psvar[4]=`echo $PWD|sed -e "s#^$vcs_info_msg_2_##g"`
+    psvar[2]=`echo $PWD|sed -E "s#$vcs_info_msg_1_#%U$vcs_info_msg_1_%u#g"`
 
     tmux rename-window $vcs_info_msg_1_ > /dev/null 2>&1
   fi
 
   psvar[5]=`df -h ~/|tail -n 1`
   psvar[5]=`echo "a${psvar[5]}"|awk '{printf"disk use: %s / %s", $3, $2}'`
+
+  # ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
+  local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
+  local USERCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(echo $USERNAME|md5sum|cut -c1-2))"'m%}'
+
+  PROMPT="%{${fg[white]}%}>%{[1;36m%}>%{[0;36m%}> %{${fg[green]}%}%1(v|%1v|)%{${fg[yellow]}%}${psvar[2]}%{${reset_color}%}
+"
+  case ${UID} in
+  0)
+    # rootの場合は赤くする
+    PROMPT=$PROMPT"%{${fg[red]}%}[%n@%f$HOSTCOLOR%m%{${fg[red]}%}]%{${reset_color}%} "
+    ;;
+  *)
+    # root以外の場合は緑
+    PROMPT=$PROMPT"%{${fg[green]}%}[$USERCOLOR%n%{${fg[green]}%}@%f$HOSTCOLOR%m%{${fg[green]}%}]%{${reset_color}%} "
+    ;;
+  esac
+
+  RPROMPT='%{[1;31m%}%5v%{[0;37m%}'
 }
 
-# ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
-local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
-local USERCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(echo $USERNAME|md5sum|cut -c1-2))"'m%}'
-
-PROMPT="%{${fg[white]}%}>%{[1;36m%}>%{[0;36m%}> %{${fg[green]}%}%1(v|%1v|)%{${fg[yellow]}%}%2v%U%3v%u%4v%{${reset_color}%}
-"
-case ${UID} in
-0)
-  # rootの場合は赤くする
-  PROMPT=$PROMPT"%{${fg[red]}%}[%n@%f$HOSTCOLOR%m%{${fg[red]}%}]%{${reset_color}%} "
-  ;;
-*)
-  # root以外の場合は緑
-  PROMPT=$PROMPT"%{${fg[green]}%}[$USERCOLOR%n%{${fg[green]}%}@%f$HOSTCOLOR%m%{${fg[green]}%}]%{${reset_color}%} "
-  ;;
-esac
-
-RPROMPT='%{[1;31m%}%5v%{[0;37m%}'
-
-
 export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
 export GHQ_ROOT=~/work
 
 export EDITOR=vim
@@ -120,8 +119,8 @@ if [ -x "`which npm`" ]; then; . <(npm completion); fi
 # useful functions
 function tmpdir() {
   local tmpdirname="tmp_$(date +'%Y%m%d')"
-  mkdir -p ~/tmp/$tmpdirname
-  cd ~/tmp/$tmpdirname
+  mkdir -p ~/$tmpdirname
+  cd ~/$tmpdirname
 }
 
 # for cygwin
