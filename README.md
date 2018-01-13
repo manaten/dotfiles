@@ -16,3 +16,9 @@ dotfiles
 - [stedolan/jq](https://github.com/stedolan/jq)
 - [tmux/tmux](https://github.com/tmux/tmux)
 - [github/hub](https://github.com/github/hub)
+
+# mintty settings(with WSL)
+
+```
+"%LOCALAPPDATA%\wsltty\bin\mintty.exe " --WSL="Ubuntu" --configdir="%APPDATA%\wsltty" --config="%USERPROFILE%\work\github.com\manaten\dotfiles\minttyrc" -~ /usr/bin/zsh -l
+```
