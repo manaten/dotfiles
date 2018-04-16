@@ -7,7 +7,7 @@ eval "$(direnv hook zsh)"
 # screenを自動で起動したい場合は、↓のコメントを外す
 # if [[ $STY = '' ]] then screen -xR; fi
 # tmuxを自動で起動したい場合は、↓のコメントを外す
-# if [[ $TMUX = '' ]] && [[ $VSCODE != 'VSCODE' ]]; then tmux a || tmux; fi
+# if [[ $TMUX = '' ]] && [[ $VSCODE = '' ]]; then tmux a || tmux; fi
 
 fpath=(~/.zsh-completions/src ${fpath})
 autoload -U compinit && compinit
