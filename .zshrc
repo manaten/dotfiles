@@ -114,10 +114,7 @@ alias -s zip='unzip'
 alias -s git='ghq get'
 alias -s sh='/bin/bash'
 
-if which terminal-notifier >/dev/null 2>&1; then
-  alias terminal-notifier='reattach-to-user-namespace terminal-notifier'
-fi
-
+which terminal-notifier >/dev/null 2>&1 && alias terminal-notifier='reattach-to-user-namespace terminal-notifier'
 
 # npm completion
 if [ -x "`which npm`" ]; then; . <(npm completion); fi
@@ -249,22 +246,22 @@ function __my_preexec_end_timetrack() {
         command="<UNKNOWN>"
     fi
 
-    message="Command finished!\nTime: $exec_time seconds\nCOMMAND: $command"
+    message="Command finished. Time: ${exec_time}s"
 
     if [ "$exec_time" -ge "$__timetrack_threshold" ]; then
         case $notify_method in
             "remotehost" )
-        # show trigger string
+                # show trigger string
                 echo -e "\e[0;30m==ZSH LONGRUN COMMAND TRACKER==$(hostname -s): $command ($exec_time seconds)\e[m"
-        sleep 1
-        # wait 1 sec, and then delete trigger string
-        echo -e "\e[1A\e[2K"
+                sleep 1
+                # wait 1 sec, and then delete trigger string
+                echo -e "\e[1A\e[2K"
                 ;;
             "terminal-notifier" )
-                echo "$message" | terminal-notifier
+                terminal-notifier -title "$command" -message "$message"
                 ;;
             "notify-send" )
-                notify-send "ZSH timetracker" "$message"
+                notify-send "$command" "$message"
                 ;;
         esac
     fi
