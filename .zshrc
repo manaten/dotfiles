@@ -258,7 +258,7 @@ function __my_preexec_end_timetrack() {
                 echo -e "\e[1A\e[2K"
                 ;;
             "terminal-notifier" )
-                terminal-notifier -title "$command" -message "$message"
+                terminal-notifier -title "$command" -message "$message" -sound default
                 ;;
             "notify-send" )
                 notify-send "$command" "$message"
