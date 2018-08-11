@@ -174,7 +174,7 @@ fi
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS='--height=40% --color=fg+:255,hl+:255 --exact'
+export FZF_DEFAULT_OPTS='--height=40% --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108,info:108,prompt:109,spinner:108,pointer:168,marker:168 --exact'
 
 
 # see http://qiita.com/ysk_1031/items/8cde9ce8b4d0870a129d
