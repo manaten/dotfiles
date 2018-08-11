@@ -58,7 +58,8 @@ module.exports = {
   },
 
   plugins: [
-    'hyper-material-theme'
+    'hyper-material-theme',
+    'hyper-search',
   ],
 
   localPlugins: [],
