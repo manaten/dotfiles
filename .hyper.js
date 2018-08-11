@@ -19,7 +19,7 @@ module.exports = {
     foregroundColor: '#fff',
     backgroundColor: '#000',
     selectionColor: 'rgba(248,28,229,0.3)',
-    borderColor: '#333',
+    borderColor: '#1DC121',
 
     css: '',
     termCSS: '',
@@ -52,7 +52,7 @@ module.exports = {
     shellArgs: ['--login', '-c', 'zsh'],
     env: {},
 
-    bell: 'SOUND',
+    bell: false,
     copyOnSelect: false,
     defaultSSHApp: true,
   },
@@ -66,5 +66,19 @@ module.exports = {
   keymaps: {
     "editor:movePreviousWord": "",
     "editor:moveNextWord": "",
+
+    "tab:new": "ctrl+t",
+    "tab:next":  "ctrl+right",
+    "tab:prev": "ctrl+left",
+    "pane:next": [
+      "alt+right",
+      "alt+up"
+    ],
+    "pane:prev": [
+      "alt+left",
+      "alt+down",
+    ],
+    "pane:splitVertical": "ctrl+d",
+    "pane:splitHorizontal": "ctrl+e",
   },
 };
