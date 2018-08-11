@@ -64,7 +64,6 @@ module.exports = {
   localPlugins: [],
 
   keymaps: {
-    "tab:jump:prefix": "",
     "editor:movePreviousWord": "",
     "editor:moveNextWord": "",
   },
