@@ -49,7 +49,7 @@ module.exports = {
     },
 
     shell: 'C:\\Windows\\System32\\bash.exe',
-    shellArgs: ['--login', '-c', 'zsh'],
+    shellArgs: ['-c', 'zsh'],
     env: {},
 
     bell: false,
