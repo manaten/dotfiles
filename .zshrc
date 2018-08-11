@@ -40,6 +40,7 @@ precmd () {
     psvar[2]=`echo $PWD|sed -E "s#$vcs_info_msg_1_#%U$vcs_info_msg_1_%u#g"`
 
     tmux rename-window $vcs_info_msg_1_ > /dev/null 2>&1
+    print -Pn "\e]0;$vcs_info_msg_1_\a"
   fi
 
   psvar[5]=`df -h ~/|tail -n 1`
