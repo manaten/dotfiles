@@ -27,7 +27,7 @@ module.exports = {
     showHamburgerMenu: '',
     showWindowControls: '',
 
-    padding: '0',
+    padding: '8px 4px',
 
     colors: {
       black: '#000000',
