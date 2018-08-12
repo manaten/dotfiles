@@ -21,7 +21,12 @@ module.exports = {
     selectionColor: 'rgba(248,28,229,0.3)',
     borderColor: '#1DC121',
 
-    css: '',
+    css: `
+      .splitpane_divider.splitpane_divider_horizontal,
+      .splitpane_divider.splitpane_divider_vertical {
+        background-color: rgba(128, 203, 196, 0.3) !important;
+      }
+    `,
     termCSS: '',
 
     showHamburgerMenu: '',
@@ -73,11 +78,11 @@ module.exports = {
     "tab:prev": "ctrl+left",
     "pane:next": [
       "alt+right",
-      "alt+up"
+      "alt+down"
     ],
     "pane:prev": [
       "alt+left",
-      "alt+down",
+      "alt+up",
     ],
     "pane:splitVertical": "ctrl+d",
     "pane:splitHorizontal": "ctrl+e",
