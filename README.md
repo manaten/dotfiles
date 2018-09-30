@@ -16,6 +16,7 @@ dotfiles
 - [stedolan/jq](https://github.com/stedolan/jq)
 - [tmux/tmux](https://github.com/tmux/tmux)
 - [github/hub](https://github.com/github/hub)
+- [sharkdp/bat](https://github.com/sharkdp/bat)
 
 # mintty settings(with WSL)
 
