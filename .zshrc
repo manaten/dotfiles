@@ -97,6 +97,7 @@ setopt transient_rprompt
 setopt prompt_subst
 
 alias rm='rm -v'
+alias cp='cp -v'
 alias grep='grep --color=auto'
 alias ls='ls -lhp'
 alias less='less -CRSn'

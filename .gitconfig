@@ -29,7 +29,7 @@
     brs = branch -vvv
     branchs = branch -v
     remotes = remote -v
-    co = checkout
+    co = checkout --recurse-submodules
     st = status -s
     ci = commit -av
     su = submodule update --recursive --init
