@@ -23,6 +23,7 @@
     template = ~/.gitmessage
 
 [alias]
+    pushh = push -u origin HEAD
     fc = fetch --all
     br = "!git checkout $(git branch -vvv | fzf | sed -E 's/^\\*? *([^ ]+).*$/\\1/')"
     bra = "!git checkout $(git branch -avvv | fzf | sed -E 's/^\\*? *([^ ]+).*$/\\1/')"
@@ -57,4 +58,3 @@
     fetch = +refs/pull/*:refs/remotes/pull/*
 [ghq]
     root = ~/work
-
