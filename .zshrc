@@ -118,6 +118,10 @@ alias -s zip='unzip'
 alias -s git='ghq get'
 alias -s sh='/bin/bash'
 
+function urlencode() {
+  node -e "console.log(encodeURIComponent('$1'))"
+}
+
 which terminal-notifier >/dev/null 2>&1 && alias terminal-notifier='reattach-to-user-namespace terminal-notifier'
 
 # npm completion
