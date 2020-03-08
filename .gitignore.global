@@ -17,6 +17,12 @@ local.js
 
 # 開発時に自分の都合で勝手に置くことがあるため。
 .envrc
+.env
 
 # リポジトリ内に勝手に作れる用
 manatemp
+
+# 秘密っぽい名前のファイルを念の為ignroe
+*.key
+*.keys
+id_rsa
