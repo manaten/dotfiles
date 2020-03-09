@@ -11,6 +11,7 @@
 .idea
 .vscode
 *.iml
+.metals
 
 fuel_completion.php
 local.js

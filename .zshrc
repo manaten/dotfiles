@@ -82,6 +82,7 @@ HISTSIZE=999999
 SAVEHIST=999999
 REPORTTIME=2
 
+setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
@@ -104,7 +105,8 @@ alias ls='ls -lhp'
 alias less='less -CRSn'
 alias vi='vim'
 alias curl='curl -s'
-alias ghqls='cd $GHQ_ROOT/$(ghq list | peco)'
+alias ghqls='cd $GHQ_ROOT/$(ghq list | fzf)'
+alias npm-run='npm run $(cat package.json | jq -r ".scripts|keys[]" | fzf)'
 
 alias -s zshrc='source'
 alias -s php='php'
