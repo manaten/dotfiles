@@ -72,6 +72,7 @@ export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export PATH=$HOME/.yarn/bin:$PATH
+export PATH=$HOME/bin:$PATH
 export GHQ_ROOT=~/work
 
 export EDITOR=vim
