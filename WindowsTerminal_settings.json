@@ -11,7 +11,8 @@
           "fontFace": "Consolas",
           "fontSize": 11,
           "useAcrylic": true,
-          "acrylicOpacity": 0.9
+          "acrylicOpacity": 0.85,
+          "scrollbarState": "hidden"
       },
       "list":
       [
