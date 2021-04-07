@@ -12,7 +12,8 @@
           "fontSize": 11,
           "useAcrylic": true,
           "acrylicOpacity": 0.85,
-          "scrollbarState": "hidden"
+          "scrollbarState": "hidden",
+          "bellStyle": "none"
       },
       "list":
       [
