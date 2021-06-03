@@ -32,6 +32,7 @@
     branchs = branch -v
     remotes = remote -v
     co = checkout --recurse-submodules
+    fco = "!git fetch origin && git co"
     st = status -s
     ci = commit -av
     cif = "!git commit -av --fixup=$(git log  --pretty=format:'%h - %d %s (%cr) <%an>' | fzf | cut -f1 -d' ')"
