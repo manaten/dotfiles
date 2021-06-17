@@ -58,6 +58,7 @@
 [fetch]
     prune = true
 [remote "origin"]
+# https://blog.manaten.net/entry/github_pr_fetch
     fetch = +refs/pull/*:refs/remotes/pull/*
 [ghq]
     root = ~/work
