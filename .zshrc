@@ -66,7 +66,7 @@ precmd () {
   RPROMPT='%{[1;31m%}%5v%{[0;37m%}'
 }
 
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH

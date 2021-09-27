@@ -27,3 +27,8 @@ manatemp
 *.key
 *.keys
 id_rsa
+
+# metals
+.metals/
+.bloop/
+project/metals.sbt
