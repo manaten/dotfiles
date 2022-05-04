@@ -20,7 +20,7 @@
     default = simple
 
 [commit]
-    template = ~/.gitmessage
+#    template = ~/.gitmessage
 
 [alias]
     pushh = push -u origin HEAD
