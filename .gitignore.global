@@ -31,4 +31,6 @@ id_rsa
 # metals
 .metals/
 .bloop/
+metals.sbt
 project/metals.sbt
+

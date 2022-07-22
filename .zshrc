@@ -130,6 +130,9 @@ which terminal-notifier >/dev/null 2>&1 && alias terminal-notifier='reattach-to-
 # npm completion
 if [ -x "`which npm`" ]; then; . <(npm completion); fi
 
+# kubectl completion
+if [ -x "`which kubectl`" ]; then; . <(kubectl completion zsh); fi
+
 # useful functions
 function tmpdir() {
   local tmpdirname="tmp_$(date +'%Y%m%d')"
@@ -290,4 +293,3 @@ fi
 
 # ローカル用の設定を読む
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
