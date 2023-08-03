@@ -4,6 +4,8 @@ export OUTPUT_CHARSET=utf8
 
 eval "$(direnv hook zsh)"
 
+eval "$(anyenv init -)"
+
 # screenを自動で起動したい場合は、↓のコメントを外す
 # if [[ $STY = '' ]] then screen -xR; fi
 # tmuxを自動で起動したい場合は、↓のコメントを外す
@@ -69,7 +71,6 @@ precmd () {
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 export PATH=$HOME/.composer/vendor/bin:$PATH
-export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export PATH=$HOME/.yarn/bin:$PATH
 export PATH=$HOME/bin:$PATH
