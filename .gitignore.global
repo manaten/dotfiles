@@ -9,7 +9,6 @@
 
 .externalToolBuilders
 .idea
-.vscode
 *.iml
 .metals
 

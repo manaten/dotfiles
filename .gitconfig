@@ -8,6 +8,7 @@
     excludesfile = ~/.gitignore.global
     attributesfile = ~/.gitattributes.global
     fileMode = false
+    ignorecase = false
 
 [color]
     status = auto
