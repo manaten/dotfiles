@@ -33,7 +33,8 @@
     branchs = branch -v
     remotes = remote -v
     co = checkout --recurse-submodules
-    com = "!git co master && git pull"
+    # com = "!git co main && git pull"
+    com = "!git fetch origin && git co main && git pull && git branch -vvv | grep gone | awk '{print $1}' | xargs git branch -D"
     fco = "!git fetch origin && git co"
     st = status -s
     ci = commit -av
