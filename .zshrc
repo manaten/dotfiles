@@ -4,6 +4,7 @@ export OUTPUT_CHARSET=utf8
 
 eval "$(direnv hook zsh)"
 
+export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 # screenを自動で起動したい場合は、↓のコメントを外す
