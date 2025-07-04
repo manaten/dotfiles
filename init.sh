@@ -1,6 +1,11 @@
 #!/bin/sh
-for i in .bashrc .gitconfig .gitmessage .gitignore.global .gitattributes.global .tmux.conf .vimrc .zshrc .direnvrc .editorconfig
+
+PWD="$(pwd)"
+
+for i in .bashrc .gitconfig .gitmessage .gitignore.global .gitattributes.global .tmux.conf .vimrc .zshrc .editorconfig
 do
-  ln -fs `pwd`/$i ~/$i
+  ln -fsv "$PWD/$i" ~/$i
 done
 
+mkdir -pv ~/.config/mise
+ln -fsv "$PWD/mise_config.toml" ~/.config/mise/config.toml

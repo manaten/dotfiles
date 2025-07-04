@@ -33,3 +33,5 @@ id_rsa
 metals.sbt
 project/metals.sbt
 
+# 一旦個人用に
+copilot-instructions.md

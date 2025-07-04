@@ -1,0 +1,10 @@
+[tasks.aws-sso-login]
+alias = "al"
+description = "SSOでログインして、現在のセッションに認証情報を設定する"
+run = "aws sts get-caller-identity >/dev/null 2>&1 || aws sso login"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+
+[tools]
+"npm:@anthropic-ai/claude-code" = "latest"
