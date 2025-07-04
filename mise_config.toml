@@ -1,0 +1,16 @@
+[tasks.aws-sso-login]
+alias = "al"
+description = "SSOでログインして、現在のセッションに認証情報を設定する"
+run = "aws sts get-caller-identity >/dev/null 2>&1 || aws sso login"
+
+[tasks.plusweb-bff-forward]
+run = [
+  "mise run aws-sso-login --profile=wl-hachi-dev",
+  "AWS_PROFILE=wl-hachi-dev ~/work/github.com/tokyucorp/tokyuplus-web-backend/tools/bff-bastion/start-ssm-bastion.sh"
+]
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+
+[tools]
+"npm:@anthropic-ai/claude-code" = "latest"

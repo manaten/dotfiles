@@ -64,3 +64,4 @@
     fetch = +refs/pull/*:refs/remotes/pull/*
 [ghq]
     root = ~/work
+

@@ -46,8 +46,8 @@ precmd () {
     print -Pn "\e]0;$vcs_info_msg_1_\a"
   fi
 
-  psvar[5]=`df -h ~/|tail -n 1`
-  psvar[5]=`echo "a${psvar[5]}"|awk '{printf"disk use: %s / %s", $3, $2}'`
+  # psvar[5]=`df -h ~/|tail -n 1`
+  # psvar[5]=`echo "a${psvar[5]}"|awk '{printf"disk use: %s / %s", $3, $2}'`
 
   # ホスト毎にホスト名の部分の色を作る http://absolute-area.com/post/6664864690/zsh
   local HOSTCOLOR=$'%{[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
@@ -110,6 +110,7 @@ alias vi='vim'
 alias curl='curl -s'
 alias ghqls='cd $GHQ_ROOT/$(ghq list | fzf)'
 alias npm-run='npm run $(cat package.json | jq -r ".scripts|keys[]" | fzf)'
+alias aws-sso-login='aws sts get-caller-identity >/dev/null 2>&1 || aws sso login'
 
 alias -s zshrc='source'
 alias -s php='php'
@@ -295,3 +296,8 @@ fi
 
 # ローカル用の設定を読む
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+PATH=~/.console-ninja/.bin:$PATH
+
+eval "$(/Users/manaten/.local/bin/mise activate zsh)"
+
