@@ -299,5 +299,5 @@ fi
 
 PATH=~/.console-ninja/.bin:$PATH
 
-eval "$(/Users/manaten/.local/bin/mise activate zsh)"
+eval "$(~/.local/bin/mise activate zsh)"
 
