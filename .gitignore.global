@@ -21,6 +21,7 @@ local.js
 
 # リポジトリ内に勝手に作れる用
 manatemp
+manatemp*
 
 # 秘密っぽい名前のファイルを念の為ignroe
 *.key

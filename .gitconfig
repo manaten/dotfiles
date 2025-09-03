@@ -9,6 +9,7 @@
     attributesfile = ~/.gitattributes.global
     fileMode = false
     ignorecase = false
+    pager = delta
 
 [color]
     status = auto
@@ -45,6 +46,7 @@
     dt = difftool
     pr = "!f() { REMOTE1=`echo $1|sed 's#/.*$##'`; REMOTE2=`echo $2|sed 's#/.*$##'`; BRANCH1=`echo $1|sed 's#^.*/##'`; BRANCH2=`echo $2|sed 's#^.*/##'`; URL=`git remote show -n $REMOTE2|grep 'Fetch URL:'|sed -e 's#:#/#g' -e 's#^.*git@#http://#' -e 's#\\.git#/compare/#g'`; USER1=`git remote show -n $REMOTE1|grep 'Fetch URL:'|sed -e 's#^.*git@.*:##' -e 's#/.*$##'`; USER2=`git remote show -n $REMOTE2|grep 'Fetch URL:'|sed -e 's#^.*git@.*:##' -e 's#/.*$##'`; echo $URL$USER1:$BRANCH1...$USER2:$BRANCH2; }; f"
     cleanbr = "!git checkout master && git pull origin master && git fetch --all && git branch --merged origin/master | grep -vE '^\\*|master$' | xargs git branch -d"
+    wt = "!f() { BRANCH="$1"; BRANCH_ESCAPED="echo $1 | sed 's#/#-#'"; GIT_ROOT=`git rev-parse --show-toplevel`; git worktree "$GIT_ROOT/.worktree/$BRANCH_ESCAPED" "$BRANCH" }; f"
 
 # http://yuroyoro.hatenablog.com/entry/2012/10/22/153429
     ch = "!f() { git cherry -v "$@" | awk '{ if($1 == \"+\"){ color = \"green\" } if($1 == \"-\"){ color = \"red\" } cmd = \"git show --date=short --no-notes --pretty=format:\\047%C\" color $1 \" %h %Cgreen%cd %Cblue%cn%x09%Creset%s\\047 --summary \" $2; cmd | getline t; close(cmd); print t }' ;}; f"
@@ -71,3 +73,12 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+
+[merge]
+    conflictStyle = zdiff3
