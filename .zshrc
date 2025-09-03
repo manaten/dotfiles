@@ -197,7 +197,13 @@ export FZF_DEFAULT_OPTS='--height=40% --color=fg:10,fg+:255,hl+:255,bg+:8 --exac
 function fzf-ghq () {
     local selected_dir=$(ghq list | fzf --query="$LBUFFER" --height=40%)
     if [ -n "$selected_dir" ]; then
-        BUFFER="cd $GHQ_ROOT/${selected_dir}"
+        local command="cd"
+
+        if [[ $TERM_PROGRAM = 'vscode' ]]; then
+            command="code"
+        fi
+
+        BUFFER="$command $GHQ_ROOT/${selected_dir}"
         zle accept-line
     fi
 }
