@@ -80,5 +80,5 @@
 [delta]
     navigate = true  # use n and N to move between diff sections
 
-[merge]
-    conflictStyle = zdiff3
+# [merge]
+#     conflictStyle = zdiff3
