@@ -8,3 +8,7 @@ idiomatic_version_file_enable_tools = ["node"]
 
 [tools]
 "npm:@anthropic-ai/claude-code" = "latest"
+
+[tasks.update-template]
+description = "update node repository by template"
+run = "git co -b chore/template && git fetch template && git merge template/main"
