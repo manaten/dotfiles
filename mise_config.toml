@@ -5,9 +5,14 @@ run = "aws sts get-caller-identity >/dev/null 2>&1 || aws sso login"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
+experimental = true
 
 [tools]
 "npm:@anthropic-ai/claude-code" = "latest"
+"aqua:junegunn/fzf" = "latest"
+"aqua:x-motemen/ghq" = "latest"
+"aqua:BurntSushi/ripgrep" = "latest"
+"aqua:jqlang/jq" = "latest"
 
 [tasks.update-template]
 description = "update node repository by template"
