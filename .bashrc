@@ -28,3 +28,8 @@ fi
 
 # ctrl-] ?ghq+fzf
 bind '"\C-]": " \C-e\C-ucd $GHQ_ROOT/$(ghq list | fzf)\e\C-e\e^\er"'
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/manaten/.lmstudio/bin"
+# End of LM Studio CLI section
+

@@ -9,6 +9,7 @@ experimental = true
 
 [tools]
 "npm:@anthropic-ai/claude-code" = "latest"
+"npm:@github/copilot" = "latest"
 "aqua:junegunn/fzf" = "latest"
 "aqua:x-motemen/ghq" = "latest"
 "aqua:BurntSushi/ripgrep" = "latest"
