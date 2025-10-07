@@ -14,6 +14,7 @@ experimental = true
 "aqua:x-motemen/ghq" = "latest"
 "aqua:BurntSushi/ripgrep" = "latest"
 "aqua:jqlang/jq" = "latest"
+usage = "latest"
 
 [tasks.update-template]
 description = "update node repository by template"
