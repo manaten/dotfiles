@@ -18,6 +18,8 @@ local.js
 # 開発時に自分の都合で勝手に置くことがあるため。
 .envrc
 .env
+.env*
+!.env*.template
 
 # リポジトリ内に勝手に作れる用
 manatemp
