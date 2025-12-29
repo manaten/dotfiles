@@ -40,3 +40,4 @@ project/metals.sbt
 copilot-instructions.md
 
 .worktree
+.claude/settings.local.json

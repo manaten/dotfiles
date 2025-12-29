@@ -303,8 +303,6 @@ fi
 # ローカル用の設定を読む
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
-PATH=~/.console-ninja/.bin:$PATH
-
 eval "$(~/.local/bin/mise activate zsh)"
 
 

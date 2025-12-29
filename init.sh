@@ -9,3 +9,6 @@ done
 
 mkdir -pv ~/.config/mise
 ln -fsv "$PWD/mise_config.toml" ~/.config/mise/config.toml
+
+mkdir -pv ~/.claude
+ln -fsv "$PWD/.claude/settings.json" ~/.claude/settings.json
