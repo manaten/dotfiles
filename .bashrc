@@ -33,3 +33,5 @@ bind '"\C-]": " \C-e\C-ucd $GHQ_ROOT/$(ghq list | fzf)\e\C-e\e^\er"'
 export PATH="$PATH:/Users/manaten/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+source ~/.safe-chain/scripts/init-posix.sh # Safe-chain bash initialization script

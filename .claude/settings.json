@@ -68,6 +68,9 @@
       "Bash(npm publish:*)"
     ]
   },
-  "enabledMcpjsonServers": ["atlassian"],
-  "enableAllProjectMcpServers": true
+  "model": "opusplan",
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "atlassian"
+  ]
 }

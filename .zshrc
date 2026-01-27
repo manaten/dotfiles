@@ -310,3 +310,5 @@ eval "$(~/.local/bin/mise activate zsh)"
 export PATH="$PATH:/Users/manaten/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script

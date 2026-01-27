@@ -16,6 +16,7 @@ experimental = true
 "aqua:jqlang/jq" = "latest"
 usage = "latest"
 "aqua:harelba/q" = "latest"
+"github:AikidoSec/safe-chain" = { version = "latest", postinstall = "safe-chain setup" }
 
 [tasks.update-template]
 description = "update node repository by template"
