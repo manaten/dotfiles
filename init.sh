@@ -2,7 +2,7 @@
 
 PWD="$(pwd)"
 
-for i in .bashrc .gitconfig .gitmessage .gitignore.global .gitattributes.global .tmux.conf .vimrc .zshrc .editorconfig
+for i in .bashrc .gitconfig .gitmessage .gitignore.global .gitattributes.global .tmux.conf .vimrc .zshrc .editorconfig .npmrc
 do
   ln -fsv "$PWD/$i" ~/$i
 done
@@ -12,4 +12,4 @@ ln -fsv "$PWD/mise_config.toml" ~/.config/mise/config.toml
 
 mkdir -pv ~/.claude
 ln -fsv "$PWD/.claude/settings.json" ~/.claude/settings.json
-ln -fsv "$PWD/.claude/skills" ~/.claude/skills
+ln -fsv "$PWD/.claude/skills" ~/.claude/

@@ -3,7 +3,11 @@
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
     "excludedCommands": ["git"],
-    "network": { "allowedDomains": ["github.com", "*.npmjs.org"] }
+    "enableWeakerNetworkIsolation": true,
+    "allowUnsandboxedCommands": false,
+    "network": {
+      "allowedDomains": ["github.com", "api.github.com", "*.npmjs.org"]
+    }
   },
   "permissions": {
     "allow": [
@@ -23,19 +27,20 @@
       "Bash(ls:*)",
       "Bash(mkdir:*)",
       "Bash(mv:*)",
+      "Bash(npm install)",
       "Bash(npm run build:*)",
       "Bash(npm run dev:*)",
       "Bash(npm run fix:*)",
       "Bash(npm run lint:*)",
-      "Bash(npm run lint)",
       "Bash(npm run test:*)",
       "Bash(npm run typecheck:*)",
+      "Bash(npm run:*)",
       "Bash(npm test:*)",
       "Bash(npx cdk synth:*)",
       "Bash(npx eslint:*)",
       "Bash(npx tsc:*)",
       "Bash(npx tsx:*)",
-      "Bash(npx vitest run:*)",
+      "Bash(npx vitest:*)",
       "Bash(rg:*)",
       "Bash(touch:*)"
     ],
@@ -45,36 +50,36 @@
       "Bash(gh pr create:*)",
       "Bash(gh pr edit:*)",
       "Bash(git merge:*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset:*)",
       "Bash(git stash:*)",
       "Bash(git tag:*)",
       "Bash(npm install)",
       "Bash(npm publish:*)",
+      "Bash(npm uninstall:*)",
       "Bash(rm:*)"
     ],
     "deny": [
       "Bash(git push --force:*)",
       "Bash(git push -f:*)",
-      "Bash(git rebase:*)",
-      "Bash(git reset:*)",
       "Bash(mongo d:*)",
       "Bash(mysql:*)",
       "Bash(npm remove:*)",
-      "Bash(npm uninstall:*)",
       "Bash(psql:*)",
       "Bash(rm -rf:*)",
       "Bash(sudo:*)",
       "NotebookEdit",
-      "Read(.env*)",
+      "Read(.env)",
       "Read(**/.ssh/**)",
       "Read(**/key*)",
-      "Read(id_ed25519)",
-      "Read(id_rsa)",
-      "Write(.env*)",
+      "Read(**/secrets/*)",
+      "Read(~/.aws/**)",
+      "Read(id_ed25519*)",
+      "Read(id_rsa*)",
+      "Write(.env)",
       "Write(**/.ssh/**)",
       "Write(**/secrets/**)"
     ]
   },
-  "model": "opusplan",
-  "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": ["atlassian"]
+  "model": "opusplan"
 }
