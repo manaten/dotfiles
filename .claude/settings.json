@@ -74,7 +74,7 @@
       "NotebookEdit",
       "Read(.env)",
       "Read(**/.ssh/**)",
-      "Read(**/key*)",
+      "Read(**/*.key)",
       "Read(**/secrets/*)",
       "Read(~/.aws/**)",
       "Read(id_ed25519*)",
