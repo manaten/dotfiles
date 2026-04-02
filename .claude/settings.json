@@ -60,6 +60,7 @@
       "Bash(rm:*)"
     ],
     "deny": [
+      "Bash(git commit --no-verify:*)",
       "Bash(git push --force:*)",
       "Bash(git push -f:*)",
       "Bash(mongo d:*)",
