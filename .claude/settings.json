@@ -67,7 +67,7 @@
       "Bash(npm remove:*)",
       "Bash(psql:*)",
       "Bash(rm -rf:*)",
-      "Bash(gh auth token:*)",
+      "Bash(gh auth:*)",
       "Bash(sudo:*)",
       "NotebookEdit",
       "Read(.env)",
