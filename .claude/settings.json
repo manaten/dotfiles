@@ -3,9 +3,9 @@
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
     "excludedCommands": ["git"],
-    "enableWeakerNetworkIsolation": true,
     "allowUnsandboxedCommands": false,
     "network": {
+      "allowLocalBinding": true,
       "allowedDomains": ["github.com", "api.github.com", "*.npmjs.org"]
     }
   },
@@ -57,7 +57,9 @@
       "Bash(npm install)",
       "Bash(npm publish *)",
       "Bash(npm uninstall *)",
-      "Bash(rm *)"
+      "Bash(rm *)",
+      "Read(**/.ssh/**)",
+      "Read(**/*.pem)"
     ],
     "deny": [
       "Bash(git commit --no-verify *)",
@@ -74,10 +76,9 @@
       "NotebookEdit",
       "Read(.env)",
       "Read(**/*.key)",
-      "Read(**/secrets/*)",
-      "Write(.env)",
-      "Write(**/.ssh/**)",
-      "Write(**/secrets/**)"
+      "Read(**/secrets/**)",
+      "Write(.claude/settings.json)",
+      "Write(.claude/settings.local.json)"
     ]
   },
   "model": "opusplan"
