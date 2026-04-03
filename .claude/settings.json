@@ -73,12 +73,8 @@
       "Bash(sudo *)",
       "NotebookEdit",
       "Read(.env)",
-      "Read(**/.ssh/**)",
       "Read(**/*.key)",
       "Read(**/secrets/*)",
-      "Read(~/.aws/**)",
-      "Read(id_ed25519*)",
-      "Read(id_rsa*)",
       "Write(.env)",
       "Write(**/.ssh/**)",
       "Write(**/secrets/**)"
