@@ -17,6 +17,7 @@ experimental = true
 usage = "latest"
 "aqua:harelba/q" = "latest"
 "github:AikidoSec/safe-chain" = "latest"
+"aqua:mgdm/htmlq" = "latest"
 
 [tasks.update-template]
 description = "update node repository by template"
