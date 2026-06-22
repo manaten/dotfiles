@@ -1,9 +1,11 @@
 ---
 name: code-review
-description: Code review current diffs on subagent.
+description: 現状とmainとの差分をサブエージェントでレビューします
+when_to_use: 大きめの実装を完了したときは、自動でレビューも行ってください
+context: fork
 ---
 
-サブエージェントで現状と origin/main との差分をコードレビューしてください。私は以下の点を重視します
+現状と origin/main との差分をコードレビューしてください。私は以下の点を重視します
 
 - 適切な抽象化がされており、冗長でないこと
 - 意味のある、説明可能な抽象化がされていること
