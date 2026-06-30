@@ -2,11 +2,17 @@
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
-    "excludedCommands": ["git"],
-    "allowUnsandboxedCommands": false,
+    "excludedCommands": [
+      "git"
+    ],
+    "allowUnsandboxedCommands": true,
     "network": {
       "allowLocalBinding": true,
-      "allowedDomains": ["github.com", "api.github.com", "*.npmjs.org"]
+      "allowedDomains": [
+        "github.com",
+        "api.github.com",
+        "*.npmjs.org"
+      ]
     }
   },
   "permissions": {
@@ -62,6 +68,7 @@
       "Read(**/*.pem)"
     ],
     "deny": [
+      "Bash(env)",
       "Bash(git commit --no-verify *)",
       "Bash(git push --force *)",
       "Bash(git push -f *)",
@@ -80,6 +87,5 @@
       "Write(.claude/settings.json)",
       "Write(.claude/settings.local.json)"
     ]
-  },
-  "model": "opusplan"
+  }
 }
