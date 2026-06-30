@@ -6,9 +6,12 @@ run = "aws sts get-caller-identity >/dev/null 2>&1 || aws sso login"
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
 experimental = true
+npm.package_manager = "aube"
 
 [tools]
-"npm:@anthropic-ai/claude-code" = "latest"
+aube = "latest"
+"aqua:anthropics/claude-code" = "latest"
+"npm:@owloops/claude-powerline" = "latest"
 "npm:@github/copilot" = "latest"
 "aqua:junegunn/fzf" = "latest"
 "aqua:x-motemen/ghq" = "latest"
