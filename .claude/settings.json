@@ -1,20 +1,4 @@
 {
-  "sandbox": {
-    "enabled": true,
-    "autoAllowBashIfSandboxed": true,
-    "excludedCommands": [
-      "git"
-    ],
-    "allowUnsandboxedCommands": true,
-    "network": {
-      "allowLocalBinding": true,
-      "allowedDomains": [
-        "github.com",
-        "api.github.com",
-        "*.npmjs.org"
-      ]
-    }
-  },
   "permissions": {
     "allow": [
       "Bash(find *)",
@@ -50,23 +34,6 @@
       "Bash(rg *)",
       "Bash(touch *)"
     ],
-    "ask": [
-      "Bash(chmod +x *)",
-      "Bash(curl *)",
-      "Bash(gh pr create *)",
-      "Bash(gh pr edit *)",
-      "Bash(git merge *)",
-      "Bash(git rebase *)",
-      "Bash(git reset *)",
-      "Bash(git stash *)",
-      "Bash(git tag *)",
-      "Bash(npm install)",
-      "Bash(npm publish *)",
-      "Bash(npm uninstall *)",
-      "Bash(rm *)",
-      "Read(**/.ssh/**)",
-      "Read(**/*.pem)"
-    ],
     "deny": [
       "Bash(env)",
       "Bash(git commit --no-verify *)",
@@ -86,6 +53,39 @@
       "Read(**/secrets/**)",
       "Write(.claude/settings.json)",
       "Write(.claude/settings.local.json)"
+    ],
+    "ask": [
+      "Bash(chmod +x *)",
+      "Bash(curl *)",
+      "Bash(gh pr create *)",
+      "Bash(gh pr edit *)",
+      "Bash(git merge *)",
+      "Bash(git rebase *)",
+      "Bash(git reset *)",
+      "Bash(git stash *)",
+      "Bash(git tag *)",
+      "Bash(npm install)",
+      "Bash(npm publish *)",
+      "Bash(npm uninstall *)",
+      "Bash(rm *)",
+      "Read(**/.ssh/**)",
+      "Read(**/*.pem)"
     ]
+  },
+  "language": "Japanese",
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "allowUnsandboxedCommands": true,
+    "network": {
+      "allowedDomains": ["github.com", "api.github.com", "*.npmjs.org"],
+      "allowLocalBinding": true
+    },
+    "excludedCommands": ["git"]
+  },
+  "theme": "auto",
+  "statusLine": {
+    "type": "command",
+    "command": "sh ~/.claude/statusline-command.sh"
   }
 }
