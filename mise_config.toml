@@ -10,7 +10,7 @@ npm.package_manager = "aube"
 
 [tools]
 aube = "latest"
-"aqua:anthropics/claude-code" = "latest"
+claude = "latest"
 "npm:@owloops/claude-powerline" = "latest"
 "npm:@github/copilot" = "latest"
 "aqua:junegunn/fzf" = "latest"
@@ -21,6 +21,7 @@ usage = "latest"
 "aqua:harelba/q" = "latest"
 "github:AikidoSec/safe-chain" = "latest"
 "aqua:mgdm/htmlq" = "latest"
+herdr = "latest"
 
 [tasks.update-template]
 description = "update node repository by template"

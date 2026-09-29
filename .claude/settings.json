@@ -1,4 +1,26 @@
 {
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
+      }
+    ]
+  },
   "permissions": {
     "allow": [
       "Bash(find *)",
@@ -72,6 +94,10 @@
       "Read(**/*.pem)"
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "sh ~/.claude/statusline-command.sh"
+  },
   "language": "Japanese",
   "sandbox": {
     "enabled": true,
@@ -83,9 +109,5 @@
     },
     "excludedCommands": ["git"]
   },
-  "theme": "auto",
-  "statusLine": {
-    "type": "command",
-    "command": "sh ~/.claude/statusline-command.sh"
-  }
+  "theme": "auto"
 }
