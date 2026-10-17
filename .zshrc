@@ -172,20 +172,23 @@ bindkey '^m' do_enter
 
 
 # ssh-agent の起動及び agent-forward対応
+# SSH_AUTH_SOCK は .zshenv で決まる。固定の場所（~/.ssh/agent.sock）なら自前の agent を使い、
+# それ以外（agent forward など）なら、固定のパスにリンクして tmux などから使い続けられるようにする
 AGENT_SOCK_FILE="/tmp/ssh-agent-$USER"
-SSH_AGENT_FILE="$HOME/.ssh-agent-info"
-if test $SSH_AUTH_SOCK ; then
-  if [ $SSH_AUTH_SOCK != $AGENT_SOCK_FILE ] ; then
-    ln -sf $SSH_AUTH_SOCK $AGENT_SOCK_FILE
-    export SSH_AUTH_SOCK=$AGENT_SOCK_FILE
+if [ "$SSH_AUTH_SOCK" = "$HOME/.ssh/agent.sock" ]; then
+  ssh-add -l >& /dev/null
+  if [ $? -eq 2 ]; then
+    # 固定の場所に agent がいない（OS や WSL を起動し直した後など）ときだけ起動する
+    rm -f "$SSH_AUTH_SOCK"
+    ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
   fi
-else
-  test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
-  if ! ssh-add -l >& /dev/null ; then
-    ssh-agent > $SSH_AGENT_FILE
-    source $SSH_AGENT_FILE
+  # 鍵の登録は、ターミナルを開いたときだけ（VS Code などが裏で zsh を起動したときにパスフレーズを聞かない）
+  if [[ -o interactive ]] && ! ssh-add -l >& /dev/null; then
     ssh-add
   fi
+elif [ -n "$SSH_AUTH_SOCK" ] && [ "$SSH_AUTH_SOCK" != "$AGENT_SOCK_FILE" ]; then
+  ln -sf "$SSH_AUTH_SOCK" "$AGENT_SOCK_FILE"
+  export SSH_AUTH_SOCK="$AGENT_SOCK_FILE"
 fi
 
 
