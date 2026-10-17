@@ -2,7 +2,7 @@
 
 PWD="$(pwd)"
 
-for i in .bashrc .gitconfig .gitmessage .gitignore.global .gitattributes.global .tmux.conf .vimrc .zshrc .editorconfig .npmrc
+for i in .bashrc .gitconfig .gitmessage .gitignore.global .gitattributes.global .tmux.conf .vimrc .zshrc .zshenv .editorconfig .npmrc
 do
   ln -fsv "$PWD/$i" ~/$i
 done
